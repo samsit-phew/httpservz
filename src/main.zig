@@ -15,10 +15,10 @@ const Options = struct {
 
 fn printUsage() void {
     std.debug.print(
-        \\httpz - a tiny, fast static file server (miniserve-ish)
+        \\httpservz - a tiny, fast static file server (miniserve-ish)
         \\
         \\Usage:
-        \\  httpz [DIR] [options]
+        \\  httpservz [DIR] [options]
         \\
         \\Options:
         \\  -p, --port <PORT>     Port to listen on (default: 8080)
@@ -91,7 +91,7 @@ pub fn main(init: std.process.Init) !void {
     };
     defer server.deinit(io);
 
-    std.debug.print("httpz serving \"{s}\" at http://{s}:{d}/\n", .{ root_abs, if (std.mem.eql(u8, opts.bind, "0.0.0.0")) "127.0.0.1" else opts.bind, opts.port });
+    std.debug.print("httpservzing  \"{s}\" at http://{s}:{d}/\n", .{ root_abs, if (std.mem.eql(u8, opts.bind, "0.0.0.0")) "127.0.0.1" else opts.bind, opts.port });
 
     while (true) {
         const stream = server.accept(io) catch |err| {
