@@ -36,7 +36,7 @@ pub fn main(init: std.process.Init) !void {
     var opts: Options = .{};
     var positional_set = false;
 
-    var args = init.minimal.args.iterate();
+    var args = try init.minimal.args.iterateAllocator(gpa);
     _ = args.next(); // skip argv0
 
     while (args.next()) |arg| {
