@@ -15,7 +15,7 @@ const Options = struct {
 
 fn printUsage() void {
     std.debug.print(
-        \\httpservz - a tiny, fast static file server (miniserve-ish)
+        \\httpservz - a tiny, fast static file server 
         \\
         \\Usage:
         \\  httpservz [DIR] [options]
